@@ -1,0 +1,62 @@
+<h1>Søk</h1>
+
+ <div class="form-group">
+ 	<label for="searchInput">Søk etter by eller sted</label>
+ 	<div class="input-group">
+ 	<input id="searchInput" class="form-control" type="search" placeholder="Skriv inn stedsnavn her" data-bind="value:searchField"></input>
+ 	<span class="input-group-btn">
+        <button id="btnSearch" class="btn btn-default" type="button" data-bind="click:searchNow">Søk</button>
+      </span>
+      </div>
+ </div>
+
+ <div class="row">
+ <h4>Dine siste søk</h4>
+ 	<ul data-bind="foreach: lastSearchResults">
+ 		<li><span data-bind="text: name"></span> </li>
+ 	</ul>
+ </div>
+
+ <div class="row">
+ <h4>Søkeresultat</h4>
+ 	<ul data-bind="foreach: searchResults">
+ 		<li>
+ 		<button id="btnSelectItemInResult" type="button" data-bind="click:$root.itemSelectedFromResult">
+ 			<span data-bind="text: name"></span>,<span data-bind="text: municipality"></span>,<span data-bind="text: county"></span>
+ 		</button> 
+ 		<!--<a href="#" data-bind="attr:{href:'city'+$index()}"></a> -->
+ 		</li>
+ 	</ul>
+ </div>
+
+
+<div class="row">
+ <h4>Vær</h4> 
+ <div id="weatherWrapper" data-bind="if:selectedWeatherdata">
+ 	      <div class="panel panel-primary" data-bind="with:selectedWeatherdata">
+            <div class="panel-heading">
+                <h1 class="panel-title">Været for Oslo, Norge</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-2 col-sm-offset-1 temperature">
+                        <span>7°</span>
+                    </div>
+                    <div class="col-sm-4 weather">
+                        <img src="../images/symbols/09.png">
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="info">
+                            <p>Nedbør</p>
+                            <p>0.5 – 1.1 mm</p>
+                        </div>
+                        <div class="info">
+                            <p>Vind:</p>
+                            <p>Svak vind, 3 m/s fra sør</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div> 	
+ </div>
